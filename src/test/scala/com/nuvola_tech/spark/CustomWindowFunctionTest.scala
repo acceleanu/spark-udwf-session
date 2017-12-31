@@ -64,4 +64,17 @@ class CustomWindowFunctionTest extends FlatSpec with SharedSparkContext  {
 
   }
 
+  def window_sample_values(window_start_seconds: Int, minutes: Int = 10, intervals_cnt: Int = 128): Seq[Double] = {
+    val seconds = minutes * 60
+
+    for (idx <- 0 until intervals_cnt)
+      yield window_start_seconds + (idx + 1.0) * seconds / intervals_cnt
+  }
+
+  it should "be able to generate time intervals" in {
+    val lines = for (minute <- Array(0, 10, 1))
+      yield window_sample_values(minute * 60) mkString ","
+
+    println(lines mkString "\n")
+  }
 }
