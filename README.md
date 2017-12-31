@@ -1,6 +1,19 @@
 # spark-udwf-session
 a spark custom window function example, to generate session IDs
 
+
+## Errors in IntelliJ
+
+- got this error 
+
+```
+Error:scala: No 'scala-library*.jar' in Scala compiler classpath in Scala SDK sbt: org.scala-lang:scala-library:2.11.11:jar
+```
+
+- and the found the fix here:
+ https://intellij-support.jetbrains.com/hc/en-us/community/posts/207303905-New-IntelliJ-Bug
+
+
 Usage
 --------------------
 
